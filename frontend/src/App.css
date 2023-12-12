@@ -1,0 +1,82 @@
+.App {
+  text-align: left;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.activeDiv{
+  background-color: #607aaf;
+  color: white;
+}
+
+.hoverDiv:hover{
+  cursor: pointer;
+  background-color: #607aaf;
+  color: white;
+}
+
+.profile-avatar {
+  width: 100px; /* Ändern Sie die Breite und Höhe nach Bedarf */
+  height: 100px;
+  border-radius: 50%; /* Erzeugt einen runden Rahmen */
+  overflow: hidden; /* Verhindert, dass das Bild über den runden Rahmen hinausragt */
+  border: 2px solid #fff; /* Optional: Fügt einen weißen Rahmen hinzu */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Optional: Fügt einen Schatten hinzu */
+}
+
+.avatar-img {
+  width: 100%;
+  height: auto;
+}
+
+.timefilter:hover{
+  cursor: pointer;
+  background-color: #3a63b6c1;
+  color:white;
+}
+
+.timefilter.active-filter {
+  background-color: #3a63b6c1;
+  color: white;
+}
+
+.custom-offcanvas {
+  /* width: 100%;
+  max-width: 100%; */
+  height: 60%!important;
+  max-height: 60%!important;
+  /* top: 25%; */
+}
