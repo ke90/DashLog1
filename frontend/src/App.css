@@ -37,12 +37,12 @@
   }
 }
 
-.activeDiv{
+.activeDiv {
   background-color: #607aaf;
   color: white;
 }
 
-.hoverDiv:hover{
+.hoverDiv:hover {
   cursor: pointer;
   background-color: #607aaf;
   color: white;
@@ -62,10 +62,10 @@
   height: auto;
 }
 
-.timefilter:hover{
+.timefilter:hover {
   cursor: pointer;
   background-color: #3a63b6c1;
-  color:white;
+  color: white;
 }
 
 .timefilter.active-filter {
@@ -76,7 +76,7 @@
 .custom-offcanvas {
   /* width: 100%;
   max-width: 100%; */
-  height: 60%!important;
-  max-height: 60%!important;
+  height: 80% !important;
+  max-height: 80% !important;
   /* top: 25%; */
 }
