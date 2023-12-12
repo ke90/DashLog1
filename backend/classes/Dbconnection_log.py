@@ -11,10 +11,11 @@ class MYSQL(Dbconnection):
 
 		self.ip = '127.0.0.1'
 		# self.ip = 'db'
-		self.pw = 'ke19291929'
+		self.pw = 'Logger123'
 		self.db = 'dashlog'
-		self.user = 'root'
-		self.port = '3306'
+		self.user = 'logger'
+		# self.port = '3306'
+		self.port='3307'
 
 	def getData(self,dict, sql, params = []):
 		res = None

@@ -132,16 +132,16 @@ WSGI_APPLICATION = 'core.wsgi.application'
 #     }
 # }
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'vorlage',
-        'USER': 'root',
-        'PASSWORD': 'ke19291929',
-        'HOST': 'localhost',
-        'PORT': '3306',
-    }
-}
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.mysql',
+#         'NAME': 'vorlage',
+#         'USER': 'root',
+#         'PASSWORD': 'ke19291929',
+#         'HOST': 'localhost',
+#         'PORT': '3306',
+#     }
+# }
 
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
