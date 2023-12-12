@@ -1,0 +1,52 @@
+version: '3'
+
+services:
+  backend:
+    build:
+      context: .
+      dockerfile: ./backend/Dockerfile
+    volumes:
+      - ./backend:/app
+    ports:
+      - "8000:8000"
+    depends_on:
+      - mysql
+    networks:
+      - dashlog_network
+
+  frontend:
+    build:
+      context: .
+      dockerfile: ./frontend/Dockerfile
+    volumes:
+      - ./frontend:/app
+    networks:
+      - dashlog_network
+
+  mysql:
+    build:
+      context: .
+      dockerfile: ./mysql/Dockerfile
+    volumes:
+      - ./mysql_data:/var/lib/mysql
+      - ./path/to/your/mysql_dump.sql:/docker-entrypoint-initdb.d/mysql_dump.sql
+    ports:
+      - "3306:3306"
+    networks:
+      - dashlog_network
+
+  nginx:
+    image: nginx:latest
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf
+    ports:
+      - "333:333"  # Port 333 auf dem Host, auf den der Nginx-Port 333 gemappt wird
+    depends_on:
+      - backend
+      - frontend
+    networks:
+      - dashlog_network
+
+networks:
+  dashlog_network:
+    driver: bridge
