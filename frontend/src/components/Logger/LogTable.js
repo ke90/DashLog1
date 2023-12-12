@@ -77,7 +77,6 @@ function LogTable() {
     }
 
     if (filterType) {
-      alert(filterType);
       if (filterType == "1" || filterType == "") {
         setFilterTimestamp("");
       }
