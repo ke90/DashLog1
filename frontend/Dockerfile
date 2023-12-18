@@ -1,5 +1,5 @@
 # Verwenden Sie das offizielle Node.js-Base-Image
-FROM node:18
+FROM node:18 as build
 
 # Arbeitsverzeichnis festlegen
 WORKDIR /app
@@ -12,3 +12,10 @@ RUN npm install --force
 
 # Bauen Sie das Frontend
 RUN npm run build
+
+
+FROM nginx:alpine
+
+COPY --from=build /app/build /usr/share/nginx/html
+
+COPY ../nginx/nginx.conf /etc/nginx/nginx.conf

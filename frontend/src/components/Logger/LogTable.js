@@ -120,7 +120,7 @@ function LogTable() {
     const startProcess = async () => {
       try {
         const response = await axios.post(
-          "http://127.0.0.1:8000/logger/load_logs/"
+          "http://backend:8000/logger/load_logs/"
         );
 
         if (response.status === 200) {
@@ -146,7 +146,7 @@ function LogTable() {
           }
 
           const eventSource = new EventSource(
-            "http://localhost:8000/logger/stream_events/"
+            "http://backend:8000/logger/stream_events/"
           );
 
           eventSource.onmessage = function (event) {

@@ -14,14 +14,14 @@ services:
     networks:
       - dashlog_network
 
-  frontend:
-    build:
-      context: .
-      dockerfile: ./frontend/Dockerfile
-    volumes:
-      - ./frontend:/app
-    networks:
-      - dashlog_network
+  # frontend:
+  #   build:
+  #     context: .
+  #     dockerfile: ./frontend/Dockerfile
+  #   volumes:
+  #     - ./frontend:/app
+  #   networks:
+  #     - dashlog_network
 
   mysql:
     build:
@@ -36,14 +36,15 @@ services:
       - dashlog_network
 
   nginx:
-    image: nginx:latest
+    build:
+      context: .
+      dockerfile: ./frontend/Dockerfile
     volumes:
       - ./nginx/nginx.conf:/etc/nginx/nginx.conf
     ports:
       - "333:333"  # Port 333 auf dem Host, auf den der Nginx-Port 333 gemappt wird
     depends_on:
       - backend
-      - frontend
     networks:
       - dashlog_network
 

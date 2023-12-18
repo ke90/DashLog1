@@ -9,8 +9,8 @@ class Dbconnection():
 class MYSQL(Dbconnection):
 	def __init__(self):
 
-		self.ip = '127.0.0.1'
-		# self.ip = 'db'
+		# self.ip = '127.0.0.1'
+		self.ip = 'db'
 		self.pw = 'ke19291929'
 		self.db = 'vorlage'
 		self.user = 'root'
