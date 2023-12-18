@@ -29,9 +29,9 @@ services:
       dockerfile: ./mysql/Dockerfile
     volumes:
       - ./mysql_data:/var/lib/mysql
-      - ./path/to/your/mysql_dump.sql:/docker-entrypoint-initdb.d/mysql_dump.sql
+      - ./dumpdashlog.sql:/docker-entrypoint-initdb.d/dumpdashlog.sql
     ports:
-      - "3306:3306"
+      - "3307:3306"
     networks:
       - dashlog_network
 

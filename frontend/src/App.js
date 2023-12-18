@@ -8,6 +8,7 @@ import { useSelector } from 'react-redux';
 import checkTokenUser from './utils/validators';
 import { useDispatch } from 'react-redux';
 import LogTable from './components/Logger/LogTable';
+import FadeInPage from './components/FadeInPage';
 
 
 function App() {
@@ -17,9 +18,11 @@ function App() {
 
   return (
     <div className="App m-5">
-        <h3>DashLog</h3>
-        <hr></hr>
-        <LogTable />
+      <FadeInPage>
+          <h3>DashLog</h3>
+          <hr></hr>
+          <LogTable />
+        </FadeInPage>
     </div>
   );
 }

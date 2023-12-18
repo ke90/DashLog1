@@ -74,9 +74,27 @@
 }
 
 .custom-offcanvas {
-  /* width: 100%;
-  max-width: 100%; */
   height: 80% !important;
   max-height: 80% !important;
-  /* top: 25%; */
 }
+
+/* .react-data-table-hover:hover {
+  background-color: #3a63b6c1;
+  cursor: pointer;
+  color:white;
+} */
+
+.custom-data-table .rdt_TableRow {
+  cursor: pointer;
+}
+
+.custom-data-table .rdt_TableRow:hover {
+  background-color: #3a63b6c1;
+  color:white;
+}
+
+
+
+.card:hover .custom-flip-numbers {
+  color: white!important; /* Farbe des Textes beim Hover */
+} 

@@ -29,6 +29,23 @@ def webhook_receiver(request):
         return JsonResponse({'error': 'Ungültige Daten'}, status=400)
     return JsonResponse({'status': 'Erfolgreich empfangen'})
 
+@csrf_exempt
+@require_POST
+def webhook_receiver2(request):
+    global id
+    try:
+        data = json.loads(request.body)
+        if data:
+            print("Folgende Daten erhalten")
+            print(data)
+            sql = '''INSERT INTO `dashlog`.`logger` (`id_app`, `message_id`, `message_text`) VALUES (%(id_app)s, %(message_id)s, %(message_text)s)'''
+            id = dbconnection.modifyData(sql,True,data)
+            ids.append(id)
+
+    except json.JSONDecodeError:
+        return JsonResponse({'error': 'Ungültige Daten'}, status=400)
+    return JsonResponse({'status': 'Erfolgreich empfangen'})
+
 def event_stream():
     global activator
     global ids
@@ -84,7 +101,7 @@ def event_stream():
                 
             fehlerproMonat = dbconnection.getData(True,sql,[])
 
-            print(fehlerproMonat)
+            # print(fehlerproMonat)
 
             combined = {
                 "data": data,

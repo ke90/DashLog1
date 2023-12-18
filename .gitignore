@@ -2,3 +2,5 @@ node_modules/
 virtual_env/
 virtual_env
 node_modules
+mysql_data
+mysql_data/

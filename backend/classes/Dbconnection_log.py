@@ -15,7 +15,7 @@ class MYSQL(Dbconnection):
 		self.db = 'dashlog'
 		self.user = 'logger'
 		# self.port = '3306'
-		self.port='3307'
+		self.port='3306'
 
 	def getData(self,dict, sql, params = []):
 		res = None

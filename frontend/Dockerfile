@@ -8,7 +8,7 @@ WORKDIR /app
 COPY ./frontend /app/
 
 # Installieren Sie die Node.js-Abhängigkeiten
-RUN npm install
+RUN npm install --force
 
 # Bauen Sie das Frontend
 RUN npm run build

@@ -15,4 +15,4 @@ RUN pip install -r requirements.txt
 EXPOSE 8000
 
 # Starten Sie den Gunicorn-Server
-CMD ["gunicorn", "your_django_project.wsgi:application", "-b", "0.0.0.0:8000"]
+CMD ["gunicorn", "core.wsgi:application", "-b", "0.0.0.0:8000"]

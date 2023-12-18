@@ -6,10 +6,11 @@ import {
   faCheckCircle,
   faExclamationTriangle,
 } from "@fortawesome/free-solid-svg-icons";
-import { Form, Row, Col, Offcanvas, Button, Modal } from "react-bootstrap";
+import { Form, Row, Col, Offcanvas, Button, Modal, Fade } from "react-bootstrap";
 import Kennzahlen from "./Kennzahlen";
 import Chart_failproApp2 from "./Chart_failproApp2";
 import Chart_failproMonat from "./Chart_failproMonat";
+import FadeInPage from '../FadeInPage';
 
 function LogTable() {
   const [tableData, setTableData] = useState([]);
@@ -36,15 +37,6 @@ function LogTable() {
 
   const handleCloseModal = () => {
     setShowModal(false);
-  };
-
-  const customStyles = {
-    rows: {
-      cursor: "pointer", // Ändere den Cursor in einen Zeiger
-      "&:hover": {
-        backgroundColor: "#f0f0f0", // Hintergrundfarbe ändern, wenn die Zeile gehovert wird
-      },
-    },
   };
 
   const handleOffcanvasToggle = () => {
@@ -77,9 +69,9 @@ function LogTable() {
     }
 
     if (filterType) {
-      if (filterType == "1" || filterType == "") {
-        setFilterTimestamp("");
-      }
+      // if (filterType == "1" || filterType == "") {
+      //   setFilterTimestamp("");
+      // }
       filtered = filtered.filter((row) => row.type_id.toString() == filterType);
     }
 
@@ -104,7 +96,7 @@ function LogTable() {
           timestampLimit = now;
       }
 
-      const timestampLimitGermanFormat = formatDateToGerman(timestampLimit);
+      // const timestampLimitGermanFormat = formatDateToGerman(timestampLimit);
       if (filterTimestamp) {
         filtered = filtered.filter((row) => {
           const rowDate = new Date(row.timestamp);
@@ -112,6 +104,9 @@ function LogTable() {
         });
       }
     }
+
+
+
     setFilteredData(filtered);
   };
 
@@ -227,7 +222,10 @@ function LogTable() {
   ];
 
   return (
-    <div className="m-5">
+<>
+{tableData.length > 0 ? (
+      <div className="m-5">
+        <FadeInPage> 
       <div className="mb-4">
         <Kennzahlen
           Tag={anzahl1Tag}
@@ -302,7 +300,8 @@ function LogTable() {
         columns={columns}
         data={filteredData}
         onRowClicked={handleRowClick}
-        customStyles={customStyles}
+        className="custom-data-table" // Fügen Sie hier Ihre benutzerdefinierte Klasse hinzu
+
       />
 
       <Offcanvas
@@ -348,7 +347,7 @@ function LogTable() {
                   />
                 ) : null}
               </p>
-              <p>Uhrzeit: {selectedRow.timestamp}</p>
+              <p>Datum: {formatDateToGerman(selectedRow.timestamp)}</p>
               <p>Meldung: {selectedRow.message_text}</p>
               {/* Weitere Datenfelder hier anzeigen */}
             </div>
@@ -360,7 +359,13 @@ function LogTable() {
           </Button>
         </Modal.Footer>
       </Modal>
+</FadeInPage>
     </div>
+) : (
+  <div>
+  </div>
+)}
+    </>
   );
 }
 

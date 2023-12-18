@@ -12,10 +12,8 @@ function Chart_failproApp2({ data }) {
     }
     console.log(data)
 
-// Extrahiere die App-Namen (app1, app2, ...) aus den Daten
 const appNames = [...new Set(data.map((entry) => entry.app))];
 
-  // Erstelle das umstrukturierte Datenformat
   const transformed = [
     ...["fehler_1_tag", "fehler_1_woche", "fehler_1_monat", "fehler_1_jahr"].map(
       (name) => ({

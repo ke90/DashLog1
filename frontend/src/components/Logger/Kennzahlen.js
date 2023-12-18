@@ -1,20 +1,22 @@
 import React from 'react';
 import { Card, Container, Row, Col } from 'react-bootstrap';
+import FlipNumbers from "react-flip-numbers";
 
-function Kennzahlen({Tag, Woche, Monat, Jahr, setFilterTimestamp, setFilterType, filterTimestamp}) {
+function Kennzahlen({Tag, Woche, Monat, Jahr, setFilterTimestamp, setFilterType}) {
 
   const handleCardClick = (item) => {
-    if (filterTimestamp != '') {
-      setFilterTimestamp('');
-      setFilterType('');
-    } else {
+    // if (filterTimestamp != '') {
+    //   setFilterTimestamp('');
+    //   setFilterType('');
+    // } else {
       setFilterTimestamp(item);
       setFilterType(2);
-    }
+    // }
   };
 
   const getCardClassName = (timePeriod) => {
-    return `timefilter shadow text-center d-flex flex-column justify-content-between h-100 w-100 ${filterTimestamp === timePeriod ? 'active-filter' : ''}`;
+    // return `timefilter shadow text-center d-flex flex-column justify-content-between h-100 w-100 ${filterTimestamp === timePeriod ? 'active-filter' : ''}`;
+    return `timefilter shadow text-center d-flex flex-column justify-content-between h-100 w-100`;
   };
 
   return (
@@ -28,7 +30,18 @@ function Kennzahlen({Tag, Woche, Monat, Jahr, setFilterTimestamp, setFilterType,
             >
               <Card.Body>
                 <Card.Title>Fehlermeldungen in den letzten 24h</Card.Title>
-                <Card.Text><h3>{Tag}</h3></Card.Text>
+                <Card.Text>
+                  <FlipNumbers
+                    play
+                    // color="black"
+                    background="transparent"
+                    width={25}
+                    height={25}
+                    numbers={`${Tag}`}
+                    className="custom-flip-numbers"
+                    />
+              </Card.Text>
+                {/* <Card.Text><h3>{Tag}</h3></Card.Text> */}
               </Card.Body>
             </Card>
           </div>
@@ -42,7 +55,18 @@ function Kennzahlen({Tag, Woche, Monat, Jahr, setFilterTimestamp, setFilterType,
             >
               <Card.Body>
                 <Card.Title>Fehlermeldungen in der letzten Woche</Card.Title>
-                <Card.Text><h3>{Woche}</h3></Card.Text>
+                {/* <Card.Text><h3>{Woche}</h3></Card.Text> */}
+                <Card.Text>
+                  <FlipNumbers
+                    play
+                    // color="black"
+                    background="transparent"
+                    width={25}
+                    height={25}
+                    numbers={`${Woche}`}
+                    className="custom-flip-numbers"
+                    />
+              </Card.Text>
               </Card.Body>
             </Card>
           </div>
@@ -56,7 +80,18 @@ function Kennzahlen({Tag, Woche, Monat, Jahr, setFilterTimestamp, setFilterType,
             >
               <Card.Body>
                 <Card.Title>Fehlermeldungen im letzten Monat</Card.Title>
-                <Card.Text><h3>{Monat}</h3></Card.Text>
+                {/* <Card.Text><h3>{Monat}</h3></Card.Text> */}
+                <Card.Text>
+                  <FlipNumbers
+                    play
+                    // color="black"
+                    background="transparent"
+                    width={25}
+                    height={25}
+                    numbers={`${Monat}`}
+                    className="custom-flip-numbers"
+                    />
+              </Card.Text>
               </Card.Body>
             </Card>
           </div>
@@ -70,7 +105,18 @@ function Kennzahlen({Tag, Woche, Monat, Jahr, setFilterTimestamp, setFilterType,
             >
               <Card.Body>
                 <Card.Title>Fehlermeldungen im letzten Jahr</Card.Title>
-                <Card.Text><h3>{Jahr}</h3></Card.Text>
+                {/* <Card.Text><h3>{Jahr}</h3></Card.Text> */}
+                <Card.Text>
+                  <FlipNumbers
+                    play
+                    // color="black"
+                    background="transparent"
+                    width={25}
+                    height={25}
+                    numbers={`${Jahr}`}
+                    className="custom-flip-numbers"
+                    />
+              </Card.Text>
               </Card.Body>
             </Card>
           </div>
